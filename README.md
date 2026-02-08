@@ -24,29 +24,30 @@ Le projet exploite le **système de skills Claude** pour fournir des agents spé
 git clone https://github.com/[username]/ai-claude-lifestyle-skills.git
 ```
 
-2. Compressez le dossier du skill :
+2. Lancez le script de release :
 
 ```bash
 cd ai-claude-lifestyle-skills
-zip -r coach-sportif.zip coach-sportif/
+./scripts/release.sh bd-training-plan 1.0
+# -> releases/bd-training-plan/bd-training-plan-v1.0.zip
 ```
 
 3. Importez dans Claude (voir Option 1, étape 2-3)
 
 ## 📖 Utilisation
 
-### Coach Sportif
+### BD Training Plan
 
 **Créer un plan d'entraînement :**
 
 ```
-Créer un plan d'entraînement pour un 10km en 40min dans 1 mois, avec coach-sportif
+Créer un plan d'entraînement pour un 10km en 40min dans 1 mois, avec bd-training-plan
 ```
 
 **Ajuster un plan existant :**
 
 ```
-J'ai une douleur au genou, ajuste mon plan avec coach-sportif
+J'ai une douleur au genou, ajuste mon plan avec bd-training-plan
 ```
 
 **Exemples de plans :**
@@ -58,16 +59,22 @@ J'ai une douleur au genou, ajuste mon plan avec coach-sportif
 
 ```
 ai-claude-lifestyle-skills/
-├── coach-sportif/
-│   ├── SKILL.md                 # Point d'entrée du skill
-│   ├── references/
-│   │   ├── coach-persona.md     # Persona du coach
-│   │   ├── training-plan-template.md
-│   │   ├── generation-rules.md
-│   │   ├── qa-checks.md
-│   │   └── athlete-profile-template.md
-│   └── artefact/                # Plans générés (optionnel)
-└── examples/                    # Exemples de plans
+├── skills/
+│   └── bd-training-plan/
+│       ├── skill.md                 # Point d'entrée du skill
+│       ├── references/
+│       │   ├── coach-persona.md     # Persona du coach
+│       │   ├── training-plan-template.md
+│       │   ├── generation-rules.md
+│       │   ├── qa-checks.md
+│       │   └── athlete-profile-template.md
+│       └── artefact/                # Plans générés (optionnel)
+├── releases/                        # Fichiers .zip prêts à importer
+│   └── bd-training-plan/
+│       └── bd-training-plan-v1.0.zip
+├── scripts/
+│   └── release.sh                   # Script de release
+└── examples/                        # Exemples de plans
 ```
 
 ## 🤝 Contribution
